@@ -1,0 +1,40 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+
+
+<head>
+    <title>Covid-19 Tracker Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+
+<body>
+<h1>Covid-19 Tracker Application</h1>
+<p>This app daily tracks the confirmed cases of corona virus</p>
+<div class="jumbotron">
+    <h1 class="display-4" th:text="${virusConfirmedCases}"></h1>
+    <p class="lead">Cases Reported today all over the globe.</p>
+
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>State</th>
+        <th>Country</th>
+        <th>Total Cases Reported</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="stats : ${virusDataList}" >
+        <td th:text="${stats.state}"></td>
+        <td th:text="${stats.country}"></td>
+        <td th:text="${stats.totalCases}">0</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+
+</html>
